@@ -15,12 +15,12 @@ def _reCon(db):
             db.ping(True)
 
 
-def keeptoprice():
-    _reCon(db)
-    with db:
-        sql = "INSERT INTO lastdaydata (id,total,closePrice,date,all_increase) VALUES ('%s', %s, %s, '%s','%s')" % (a,b,c,d,e)
-        cursor.execute(sql)
-        db.commit()
+# def keeptoprice():
+#     _reCon(db)
+#     with db:
+#         sql = "INSERT INTO lastdaydata (id,total,closePrice,date,all_increase) VALUES ('%s', %s, %s, '%s','%s')" % (a,b,c,d,e)
+#         cursor.execute(sql)
+#         db.commit()
 
 
 
