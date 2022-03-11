@@ -10,14 +10,15 @@ db = pymysql.connect(host='10.1.9.124',
                      user='root',
                      password='1qaz@WSX',
                      )
-
-cursor = db.cursor()
-sql = """SELECT t.OPERAREAID,t.OPERAREANAME,t.NOTE FROM wq_sod_erp.operarea t limit 10"""
+cursor = db.cursor(pymysql.cursors.DictCursor)
+# sql = """SELECT t.OPERAREAID,t.OPERAREANAME,t.NOTE FROM wq_sod_erp.operarea t limit 10"""
+sql = """SELECT count(*) FROM wq_sod_commodity.t_city_operate_config;"""
 cursor.execute(sql)
 data = cursor.fetchall()
+print(data)
 # print(data)
-emp = ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010']
-sel = Series(data, index=emp)
+# emp = ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010']
+# sel = Series(data, index=emp)
 # for values in sel:
 #     print(values)
 # for values in sel.keys():
@@ -59,10 +60,10 @@ sel = Series(data, index=emp)
 #
 # # 获取DataFrame的多个列
 # print(df[['OPERAREANAME', 'OPERAREANAME']])
-df = DataFrame(data, index=emp, columns=['OPERAREAID', 'OPERAREANAME', 'NOTE'])
-print(df)
-# print(df.loc['001',:])
-print(df.iloc[:,1])
+# df = DataFrame(data, index=emp, columns=['OPERAREAID', 'OPERAREANAME', 'NOTE'])
+# print(df)
+# # print(df.loc['001',:])
+# print(df.iloc[:,1])
 # # 按行遍历iterrows()
 # for index, row in df.iterrows():
 #     print(index, row)
